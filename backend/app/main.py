@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 
-from app.database import Base, engine
+from app.models.asset import Asset
+
+# from app.database import Base, engine
 from app.models.target import Target
 from app.api.targets import router as target_router
 
