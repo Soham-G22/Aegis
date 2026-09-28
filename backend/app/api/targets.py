@@ -6,6 +6,7 @@ from app.models.target import Target
 from app.schemas.target import TargetCreate, TargetResponse
 
 
+
 router = APIRouter(
     prefix="/targets",
     tags=["Targets"]

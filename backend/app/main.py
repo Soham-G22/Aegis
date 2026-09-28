@@ -5,6 +5,7 @@ from app.models.asset import Asset
 # from app.database import Base, engine
 from app.models.target import Target
 from app.api.targets import router as target_router
+from app.api.assets import router as asset_router
 
 
 # Base.metadata.create_all(bind=engine)
@@ -18,6 +19,7 @@ app = FastAPI(
 
 
 app.include_router(target_router)
+app.include_router(asset_router)
 
 
 @app.get("/")
