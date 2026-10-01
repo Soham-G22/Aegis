@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from sqlalchemy import String, DateTime, ForeignKey
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.database import Base
 
@@ -44,3 +44,7 @@ class Asset(Base):
         nullable=False,
         default="active"
     )
+
+    target: Mapped["Target"] = relationship(
+    back_populates="assets"
+)

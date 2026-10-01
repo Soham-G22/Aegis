@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from sqlalchemy import String, Boolean, DateTime
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.database import Base
 
@@ -33,4 +33,9 @@ class Target(Base):
         DateTime,
         nullable=False,
         default=datetime.utcnow
+    )
+
+    assets: Mapped[list["Asset"]] = relationship(
+        back_populates="target",
+        cascade="all, delete-orphan"
     )
